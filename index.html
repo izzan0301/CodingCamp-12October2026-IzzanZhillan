@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Do List Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-theme="light">
+
+  <!-- Storage unavailability warning banner -->
+  <div id="storage-banner" role="alert" aria-live="polite" hidden></div>
+
+  <main class="dashboard">
+
+    <!-- ===== Greeting Section ===== -->
+    <section class="section-greeting" aria-label="Greeting">
+      <p id="greeting-time" aria-label="Waktu saat ini"></p>
+      <p id="greeting-date" aria-label="Tanggal saat ini"></p>
+      <h1 id="greeting-text" aria-label="Sapaan"></h1>
+
+      <!-- Custom Name -->
+      <div class="custom-name">
+        <input 
+          id="name-input" 
+          type="text" 
+          placeholder="Masukkan nama Anda…" 
+          maxlength="50" 
+          aria-label="Nama pengguna"
+        />
+        <button id="name-save-btn" type="button">Simpan Nama</button>
+      </div>
+    </section>
+
+    <!-- ===== Theme Section ===== -->
+    <section class="section-theme" aria-label="Theme Switcher">
+      <h2>Theme</h2>
+      <button id="theme-toggle" type="button">Light / Dark Mode</button>
+    </section>
+
+    <!-- ===== Focus Timer Section ===== -->
+    <section class="section-timer" aria-label="Focus Timer">
+      <h2>Focus Timer</h2>
+      <div id="timer-display" aria-live="polite" aria-label="Tampilan timer">25:00</div>
+      <div class="timer-controls">
+        <button id="timer-start" type="button">Start</button>
+        <button id="timer-stop" type="button" disabled>Stop</button>
+        <button id="timer-reset" type="button">Reset</button>
+      </div>
+      <!-- In-page notification shown when Notification API is unavailable or permission denied -->
+      <div id="timer-notification" role="alert" aria-live="assertive" hidden></div>
+
+      <!-- Custom Pomodoro Time -->
+      <div class="pomodoro-settings">
+        <label for="pomodoro-time">Set Timer (minutes):</label>
+        <input 
+          id="pomodoro-time" 
+          type="number" 
+          min="1" 
+          max="120" 
+          value="25" 
+          aria-label="Durasi Pomodoro"
+        />
+        <button id="pomodoro-save-btn" type="button">Simpan Durasi</button>
+      </div>
+    </section>
+
+    <!-- ===== To-Do List Section ===== -->
+    <section class="section-todo" aria-label="To-Do List">
+      <h2>To-Do List</h2>
+      <div class="todo-form">
+        <input
+          id="todo-input"
+          type="text"
+          placeholder="Tambahkan tugas baru…"
+          maxlength="200"
+          aria-label="Teks tugas baru"
+        />
+        <button id="todo-add-btn" type="button">Tambah</button>
+      </div>
+      <p id="todo-error" role="alert" aria-live="polite" hidden></p>
+      <ul id="todo-list" aria-label="Daftar tugas"></ul>
+    </section>
+
+    <!-- ===== Quick Links Section ===== -->
+    <section class="section-quicklinks" aria-label="Quick Links">
+      <h2>Quick Links</h2>
+      <div class="quicklinks-form">
+        <input
+          id="link-label-input"
+          type="text"
+          placeholder="Label tautan"
+          maxlength="50"
+          aria-label="Label tautan"
+        />
+        <input
+          id="link-url-input"
+          type="url"
+          placeholder="https://contoh.com"
+          maxlength="2048"
+          aria-label="URL tautan"
+        />
+        <button id="link-add-btn" type="button">Tambah</button>
+      </div>
+      <p id="link-error" role="alert" aria-live="polite" hidden></p>
+      <p id="link-limit-msg" aria-live="polite" hidden>Batas maksimal 20 tautan telah tercapai.</p>
+      <ul id="links-list" aria-label="Daftar tautan"></ul>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
